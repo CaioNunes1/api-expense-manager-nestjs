@@ -30,8 +30,8 @@ model Expenses{
   amount Float
   description String?
   date DateTime @default(now())
-  categoryId Int
-  userId Int
+  categoryId Int //referencia a categoria
+  userId Int//referencia o usuário
   user User @relation(fields: [userId], references: [id])
   category Category @relation(fields: [categoryId],references: [id])
 }
