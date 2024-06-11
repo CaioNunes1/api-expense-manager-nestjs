@@ -19,7 +19,7 @@ model User{
   updatedAt DateTime @updatedAt
 
   firstname String @unique
-  lastname String @unique
+  lastname String
   email String @unique
   hash String 
   expenses Expenses[]
