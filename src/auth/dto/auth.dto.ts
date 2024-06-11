@@ -11,7 +11,7 @@ export class AuthDtoSignUp{
 
     @IsString()
     @IsNotEmpty()
-    name:string
+    firstname:string
 
     @IsString()
     @IsNotEmpty()

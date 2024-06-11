@@ -15,7 +15,7 @@ export class AuthService {
             const user=await this.prisma.user.create({
                 data:{
                     email:dto.email,
-                    firstname:dto.name,
+                    firstname:dto.firstname,
                     lastname:dto.lastname,
                     hash,//o hash do prisma está recebendo o hash do argon
                 }
@@ -51,6 +51,7 @@ export class AuthService {
         );
         if(!pwMatches) throw new ForbiddenException('Password incorrect');
 
+        console.log('usuário logado',dto)
         return this.signToken(user.id,user.email);
     }
 
