@@ -22,4 +22,26 @@ export class CategoryService {
         }
         
     }
+
+    async deleteCategory(dto:DtoCategory){
+        try{
+            const category=await this.prisma.category.findFirst({
+                where:{
+                    name:dto.name,//encontrando o nome da categoria
+                }
+            });
+
+            return this.prisma.category.delete({
+                where:{
+                    id:category.id//depois deletando a categoria
+                },
+            })
+        }
+        catch(error){
+            console.log(error)
+            
+            throw error
+        
+        }
+    }
 }

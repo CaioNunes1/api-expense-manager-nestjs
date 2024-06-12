@@ -24,5 +24,27 @@ export class ExpensesService {
         }
         
     }
+
+    async deleteCategory(dto:DtoExpense){
+        try{
+            const category=await this.prisma.expenses.findFirst({
+                where:{
+                    categoryId:dto.categoryId,//encontrando o nome da categoria
+                }
+            });
+
+            return this.prisma.expenses.delete({
+                where:{
+                    id:category.id//depois deletando a categoria
+                },
+            })
+        }
+        catch(error){
+            console.log(error)
+            
+            throw error
+        
+        }
+    }
     
 }

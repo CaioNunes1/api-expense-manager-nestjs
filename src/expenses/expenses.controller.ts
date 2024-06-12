@@ -5,7 +5,7 @@ import { DtoExpense } from './dto.expenses/expenses.dto';
 @Controller('expenses')
 export class ExpensesController {
     constructor(private readonly service:ExpensesService){}
-    
+    //CREATE
     @HttpCode(HttpStatus.OK)
     @Post('create')
     async ExpenseInfo(
@@ -14,4 +14,8 @@ export class ExpensesController {
         console.log(dto)
         return this.service.createCategory(dto);
     }
+
+    //DELETE
+
+
 }
