@@ -28,4 +28,11 @@ export class CategoryController {
         console.log('buscando usuário de id',userId)
         return this.category.getUserCategory(userId);
     }
+
+    @HttpCode(HttpStatus.OK)
+    @Get('updateCategory')
+    async updateCategory(@Body() dtoCategory:DtoCategory){
+        console.log(dtoCategory)
+        return this.category.updateCategory(dtoCategory);
+    }
 }

@@ -62,5 +62,27 @@ export class ExpensesService {
             console.log(error);
         }
     }
+
+    async updateCategory(dto:DtoExpense){
+        try{
+            const updateCategory=await this.prisma.expenses.updateMany({
+                where:{// where serve para especificar as condições para encontrar as 
+                    //categorias que pertencem ao userId fornecido.
+                    userId:dto.userId
+                },
+                data:{//o data define o campo que vai ser atualizado
+                    amount:dto.amount,
+                    description:dto.description,
+                }
+            })
+            return updateCategory
+        }
+        catch(error){
+            console.log(error)
+            throw error
+        }
+    }
+
+
     
 }

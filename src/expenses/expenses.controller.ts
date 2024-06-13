@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Post, Put } from '@nestjs/common';
 import { ExpensesService } from './expenses.service';
 import { DtoExpense } from './dto.expenses/expenses.dto';
 
@@ -26,11 +26,18 @@ export class ExpensesController {
 
     //GET
     @HttpCode(HttpStatus.OK)
-    @Get('delete')
+    @Get('getUserExpensesById')
     async getUserExpensesController(
         @Body() userId:number
     ){
         return this.service.getUserExpenses(userId);
     }
+
+    @HttpCode(HttpStatus.OK)
+    @Put('updateExpense')
+    async updateExpense(@Body() dtoExpense:DtoExpense){
+        return this.service.updateCategory(dtoExpense);
+    }
+
 
 }
