@@ -1,3 +1,4 @@
+import { Type } from "class-transformer";
 import { IsInt, IsNotEmpty, IsString, } from "class-validator";
 
 
@@ -7,6 +8,7 @@ export class DtoCategory{
     name:string
 
     @IsNotEmpty()
+    @Type(()=>Number)//Transforma o valor em número
     @IsInt()
     userId:number
 }
