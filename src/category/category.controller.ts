@@ -23,7 +23,7 @@ export class CategoryController {
     }
 
     @HttpCode(HttpStatus.OK)
-    @Get('getUserById')
+    @Get('getUserCategoryById')
     async getUserCategoryById(@Body() userId:number){
         console.log('buscando usuário de id',userId)
         return this.category.getUserCategory(userId);
