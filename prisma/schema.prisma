@@ -23,6 +23,7 @@ model User{
   email String @unique
   hash String 
   expenses Expenses[]
+  category Category[]
 }
 
 model Expenses{
@@ -40,4 +41,6 @@ model Category{
   id Int @id @default(autoincrement())
   name String
   expenses Expenses[]
+  userId Int
+  user User @relation(fields: [userId],references: [id])
 }

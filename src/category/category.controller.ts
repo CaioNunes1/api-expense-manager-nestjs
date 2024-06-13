@@ -18,7 +18,7 @@ export class CategoryController {
     @Delete('delete')
     async deleteCategoryController(
         @Body() dtoCategory:DtoCategory){
-            console.log('deletando categoria')
+            console.log('deletando categoria');
             return this.category.deleteCategory(dtoCategory);
     }
 }

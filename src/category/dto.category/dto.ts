@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, } from "class-validator";
+import { IsInt, IsNotEmpty, IsString, } from "class-validator";
 
 
 export class DtoCategory{
@@ -6,6 +6,9 @@ export class DtoCategory{
     @IsString()
     name:string
 
+    @IsNotEmpty()
+    @IsInt()
+    userId:number
 }
 // model Category{
 //     id Int @id @default(autoincrement())

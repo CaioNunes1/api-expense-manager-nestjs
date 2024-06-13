@@ -5,13 +5,14 @@ import { PrismaService } from 'src/prisma/prisma.service';
 @Injectable()
 export class CategoryService {
     
-    constructor(private prisma:PrismaService){}
+    constructor(private prisma:PrismaService,){}
 
     async createCategory(dto:DtoCategory){
         try{
             const category= await this.prisma.category.create({
                 data:{
                     name:dto.name,
+                    userId:dto.userId
                 }
             });
             return category
@@ -42,6 +43,21 @@ export class CategoryService {
             
             throw error
         
+        }
+    }
+
+    async getUserCategory(userId:number){
+        try{
+            const expenses=await this.prisma.category.findFirst({
+                where:{
+                    userId:userId
+                }
+            })
+
+            return expenses;
+        }
+        catch(error){
+            console.log(error);
         }
     }
 }

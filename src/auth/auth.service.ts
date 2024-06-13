@@ -55,6 +55,21 @@ export class AuthService {
         return this.signToken(user.id,user.email);
     }
 
+    // async getUser(dto:AuthDtoSignIn){
+    //     try{
+    //         const user=await this.prisma.user.findFirst({
+    //             where:{
+    //                 email:dto.email,
+    //             }
+    //         });
+    //         return user.id
+    //     }
+    //     catch(error){
+    //         console.log(error)
+    //         throw error;
+    //     }
+    // }
+
 
     async signToken(userId:number,email:string,):Promise<{access_token:string}>{
         const secret=this.config.get('JWT_SECRET')

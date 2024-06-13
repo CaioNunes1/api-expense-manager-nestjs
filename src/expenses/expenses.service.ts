@@ -6,7 +6,7 @@ import { DtoExpense } from './dto.expenses/expenses.dto';
 export class ExpensesService {
     constructor(private prisma:PrismaService){}
 
-    async createCategory(dto:DtoExpense){
+    async createExpense(dto:DtoExpense){
         try{
             const category= await this.prisma.expenses.create({
                 data:{
@@ -25,7 +25,7 @@ export class ExpensesService {
         
     }
 
-    async deleteCategory(dto:DtoExpense){
+    async deleteExpense(dto:DtoExpense){
         try{
             const category=await this.prisma.expenses.findFirst({
                 where:{
@@ -44,6 +44,22 @@ export class ExpensesService {
             
             throw error
         
+        }
+    }
+
+    async getUserExpenses(userId:number){
+        try{
+
+            const expenses=await this.prisma.expenses.findFirst({
+                where:{
+                    userId:userId
+                }
+            })
+
+            return expenses;
+        }
+        catch(error){
+            console.log(error);
         }
     }
     
