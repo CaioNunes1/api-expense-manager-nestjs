@@ -34,7 +34,8 @@ export class CategoryService {
 
             return this.prisma.category.delete({
                 where:{
-                    id:category.id//depois deletando a categoria
+                    id:category.id,//depois deletando a categoria
+                    name:dto.name,
                 },
             })
         }

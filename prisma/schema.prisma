@@ -34,13 +34,13 @@ model Expenses{
   categoryId Int //referencia a categoria
   userId Int//referencia o usuário
   user User @relation(fields: [userId], references: [id])
-  category Category @relation(fields: [categoryId],references: [id])
+  category Category @relation(fields: [categoryId],references: [id],onDelete: Cascade)
 }
 
 model Category{
   id Int @id @default(autoincrement())
   name String
-  expenses Expenses[]
+  expenses Expenses[] 
   userId Int
   user User @relation(fields: [userId],references: [id])
 }
