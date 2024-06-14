@@ -49,13 +49,12 @@ export class CategoryService {
 
     async getUserCategory(userId:number){
         try{
-            const expenses=await this.prisma.category.findFirst({
+            return this.prisma.category.findMany({
                 where:{
                     userId:userId
                 }
             })
 
-            return expenses;
         }
         catch(error){
             console.log(error);

@@ -50,7 +50,7 @@ export class ExpensesService {
     async getUserExpenses(userId:number){
         try{
 
-            const expenses=await this.prisma.expenses.findFirst({
+            const expenses=await this.prisma.expenses.findMany({
                 where:{
                     userId:userId
                 }
