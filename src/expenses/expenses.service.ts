@@ -68,7 +68,7 @@ export class ExpensesService {
             const updateCategory=await this.prisma.expenses.updateMany({
                 where:{// where serve para especificar as condições para encontrar as 
                     //categorias que pertencem ao userId fornecido.
-                    userId:dto.userId
+                    categoryId:dto.categoryId,
                 },
                 data:{//o data define o campo que vai ser atualizado
                     amount:dto.amount,

@@ -66,7 +66,8 @@ export class CategoryService {
             const updateCategory=await this.prisma.category.updateMany({
                 where:{// where serve para especificar as condições para encontrar as 
                     //categorias que pertencem ao userId fornecido.
-                    userId:dtoCategory.userId
+                    userId:dtoCategory.userId,
+                    name:dtoCategory.name
                 },
                 data:{//o data define o campo que vai ser atualizado
                     name:dtoCategory.name
