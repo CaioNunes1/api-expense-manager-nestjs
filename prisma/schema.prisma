@@ -24,6 +24,7 @@ model User{
   hash String 
   expenses Expenses[]
   category Category[]
+  incomes Incomes[]
 }
 
 model Expenses{
@@ -41,6 +42,18 @@ model Category{
   id Int @id @default(autoincrement())
   name String
   expenses Expenses[] 
+  incomes Incomes[]
   userId Int
   user User @relation(fields: [userId],references: [id])
+}
+
+model Incomes{
+   id Int @id @default(autoincrement())
+  amount Float
+  description String?
+  date DateTime @default(now())
+  categoryId Int //referencia a categoria
+  userId Int//referencia o usuário
+  user User @relation(fields: [userId], references: [id])
+  category Category @relation(fields: [categoryId],references: [id],onDelete: Cascade)
 }
