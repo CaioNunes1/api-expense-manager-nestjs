@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsInt, IsNotEmpty, IsString, } from "class-validator";
+import { IsInt, IsNotEmpty, IsOptional, IsString, } from "class-validator";
 
 
 export class DtoCategory{
@@ -11,6 +11,10 @@ export class DtoCategory{
     @Type(()=>Number)//Transforma o valor em número
     @IsInt()
     userId:number
+
+    @IsString()
+    @IsOptional()
+    newCategoryName?:string
 }
 // model Category{
 //     id Int @id @default(autoincrement())

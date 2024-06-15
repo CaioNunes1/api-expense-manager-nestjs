@@ -63,17 +63,16 @@ export class CategoryService {
 
     async updateCategory(dtoCategory:DtoCategory){
         try{
-            const updateCategory=await this.prisma.category.updateMany({
+            return this.prisma.category.updateMany({
                 where:{// where serve para especificar as condições para encontrar as 
                     //categorias que pertencem ao userId fornecido.
                     userId:dtoCategory.userId,
                     name:dtoCategory.name
                 },
                 data:{//o data define o campo que vai ser atualizado
-                    name:dtoCategory.name
+                    name:dtoCategory.newCategoryName
                 }
-            })
-            return updateCategory
+            });
         }
         catch(error){
             console.log(error)
