@@ -20,13 +20,14 @@ export class IncomesController {
 
     @HttpCode(HttpStatus.OK)
     @Get('getUserIncome')
-    async getUserIncomeById(@Body('userId',ParseIntPipe) userId:number){
-        return this.getUserIncomeById(userId);
+    async getUserIncomeById(
+        @Body('userId',ParseIntPipe) userId:number){
+        return this.incomeService.getUserIncomes(userId);
     }
 
     @HttpCode(HttpStatus.OK)
     @Put('updateIncome')
     async updateIncome(@Body() dtoIncome:DtoIncomes){
-        return this.updateIncome(dtoIncome);
+        return this.incomeService.updateIncomes(dtoIncome);
     }
 }
