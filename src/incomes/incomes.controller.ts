@@ -4,20 +4,18 @@ import { DtoIncomes } from './dto';
 
 @Controller('incomes')
 export class IncomesController {
-    constructor(private incomeService:IncomesService){}
+    constructor(private readonly incomeService:IncomesService){}
 
     @HttpCode(HttpStatus.OK)
     @Post('create')
-    async createIncome(
-        @Body()dtoIncome:DtoIncomes
-    ){
+    async createIncome(@Body() dtoIncome: DtoIncomes) {
         return this.incomeService.createIncome(dtoIncome);
     }
 
     @HttpCode(HttpStatus.OK)
     @Delete('delete')
     async deleteIncome(@Body() dtoIncome:DtoIncomes){
-        return this.deleteIncome(dtoIncome);
+        return this.incomeService.deleteIncome(dtoIncome);
     }
 
     @HttpCode(HttpStatus.OK)

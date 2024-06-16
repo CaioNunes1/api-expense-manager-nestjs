@@ -1,22 +1,22 @@
 import { Type } from 'class-transformer';
-import { IsInt, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsInt, IsNotEmpty, IsNumber, IsOptional } from 'class-validator';
 export class DtoIncomes{
-    @IsNumber()
     @IsNotEmpty()
-    @Type(()=>Number)
+    @Type(()=>Number)//Transforma o valor em número
+    @IsNumber()
     amount:number
 
-    @IsString()
-    @IsOptional()
-    description?:string
-
-    @IsInt()
     @IsNotEmpty()
-    @Type(()=>Number)
+    @IsOptional()
+    description:string
+
+    @IsNotEmpty()
+    @Type(()=>Number)//Transforma o valor em número
+    @IsInt()
     categoryId:number
 
-    @IsInt()
     @IsNotEmpty()
-    @Type(()=>Number)
+    @Type(()=>Number)//Transforma o valor em número
+    @IsInt()
     userId:number
 }
