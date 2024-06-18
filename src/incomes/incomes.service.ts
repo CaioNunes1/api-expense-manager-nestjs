@@ -5,7 +5,7 @@ import { DtoIncomes } from './dto';
 @Injectable()
 export class IncomesService {
     constructor(private prisma:PrismaService){}
-
+    //todos os end points foram testados, só falta o back-end
     async createIncome(dto:DtoIncomes){
         try{
             const income= await this.prisma.incomes.create({

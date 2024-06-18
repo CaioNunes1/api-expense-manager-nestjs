@@ -5,7 +5,7 @@ import { DtoIncomes } from './dto';
 @Controller('incomes')
 export class IncomesController {
     constructor(private readonly incomeService:IncomesService){}
-
+    //todos os end points foram testados, só falta o back-end
     @HttpCode(HttpStatus.OK)
     @Post('create')
     async createIncome(@Body() dtoIncome: DtoIncomes) {
