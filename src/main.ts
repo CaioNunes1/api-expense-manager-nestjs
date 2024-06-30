@@ -17,7 +17,7 @@ async function bootstrap() {
 
   app.enableCors({//o cors é um mecanismo que libera a que os recursos da api sejam solicitados por outros domínios
     //por exemplo um front-end
-    origin:'http://localhost:3000',
+    origin:'http://localhost:5173',
     methods:'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials:true,
   })
