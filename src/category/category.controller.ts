@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, ParseIntPipe, Post, Put, } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, ParseIntPipe, Post, Put, Query, } from '@nestjs/common';
 import { CategoryService } from './category.service';
 import { DtoCategory } from './dto.category';
 
@@ -24,7 +24,7 @@ export class CategoryController {
 
     @HttpCode(HttpStatus.OK)
     @Get('getUserCategoryById')
-    async getUserCategoryById(@Body('userId',ParseIntPipe) userId:number){
+    async getUserCategoryById(@Query('userId',ParseIntPipe) userId:number){
         console.log('buscando usuário de id',userId)
         return this.category.getUserCategory(userId);
     }
