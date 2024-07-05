@@ -1,4 +1,4 @@
-import { Body, Controller, HttpCode, HttpStatus, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Post, Query } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthDtoSignIn, AuthDtoSignUp } from './dto';
 
@@ -25,7 +25,7 @@ export class AuthController {
     }
 
     @HttpCode(HttpStatus.OK)
-    @Post('getUser')//logando na conta
+    @Get('getUser')//logando na conta
     async getUserController(
         @Query('email') email:string
     ){
