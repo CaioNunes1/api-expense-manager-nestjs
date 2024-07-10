@@ -8,7 +8,7 @@ export class CategoryController {
 
     @HttpCode(HttpStatus.OK)
     @Post('create')
-    async categoryInfo(
+    async createCategoryController(
         @Body() dto: DtoCategory
     ){
         return this.category.createCategory(dto);
