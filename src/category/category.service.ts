@@ -15,7 +15,8 @@ export class CategoryService {
                     userId:dto.userId
                 }
             });
-            return category
+            console.log("Categoria criada")
+            return category;
         }
         catch(error){
             console.log(error);

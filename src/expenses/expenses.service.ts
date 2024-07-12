@@ -16,6 +16,7 @@ export class ExpensesService {
                     userId:dto.userId
                 }
             });
+            console.log(category)
             return category
         }
         catch(error){
