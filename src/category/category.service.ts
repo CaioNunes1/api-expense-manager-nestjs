@@ -7,12 +7,12 @@ export class CategoryService {
     
     constructor(private prisma:PrismaService,){}
 
-    async createCategory(dto:DtoCategory){
+    async createCategory(dto:DtoCategory)/*: Promise<DtoCategory>*/ {
         try{
             const category= await this.prisma.category.create({
                 data:{
                     name:dto.name,
-                    userId:dto.userId
+                    userId:dto.userId,
                 }
             });
             console.log("Categoria criada")
@@ -78,6 +78,20 @@ export class CategoryService {
         catch(error){
             console.log(error)
             throw error
+        }
+    }
+
+    async getCategoryId(name:string){
+        try{
+            const category= await this.prisma.category.findFirst({
+                where:{
+                 name:name   
+                }
+            })
+            return category.id;
+        }
+        catch(e){
+            console.log(e);
         }
     }
 }

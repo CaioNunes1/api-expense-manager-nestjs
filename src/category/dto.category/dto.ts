@@ -12,10 +12,10 @@ export class DtoCategory{
     @IsInt()
     userId:number
 
-    @IsNotEmpty()
-    @Type(()=>Number)//Transforma o valor em número
-    @IsInt()
-    id?:number
+    // @IsNotEmpty()
+    // @Type(()=>Number)//Transforma o valor em número
+    // @IsInt()
+    // id?:number
 
     @IsString()
     @IsOptional()
