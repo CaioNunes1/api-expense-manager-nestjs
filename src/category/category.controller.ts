@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, ParseIntPipe, Post, Put, Query, } from '@nestjs/common';
+import { Body, ConsoleLogger, Controller, Delete, Get, HttpCode, HttpStatus, ParseIntPipe, Post, Put, Query, } from '@nestjs/common';
 import { CategoryService } from './category.service';
 import { DtoCategory } from './dto.category';
 
@@ -34,5 +34,12 @@ export class CategoryController {
     async updateCategory(@Body() dtoCategory:DtoCategory){
         console.log(dtoCategory)
         return this.category.updateCategory(dtoCategory);
+    }
+
+    @HttpCode(HttpStatus.OK)
+    @Get('getCategoryId')
+    async getCategoryIdController(@Query() name:string){
+        console.log('getting category');
+        return this.category.getCategoryId(name)
     }
 }
