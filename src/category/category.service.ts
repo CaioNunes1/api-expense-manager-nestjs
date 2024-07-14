@@ -81,11 +81,12 @@ export class CategoryService {
         }
     }
 
-    async getCategoryId(name:string){
+    async getCategoryId(name:string,userId:number){
         try{
             const category= await this.prisma.category.findFirst({
                 where:{
-                 name:name   
+                 name:name,
+                 userId:userId,
                 }
             })
             return category.id;
