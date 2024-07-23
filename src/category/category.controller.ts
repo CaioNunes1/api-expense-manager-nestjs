@@ -38,7 +38,7 @@ export class CategoryController {
 
     @HttpCode(HttpStatus.OK)
     @Get('getCategoryId')
-    async getCategoryIdController(@Body() dto:DtoCategory){
+    async getCategoryIdController(@Query() dto:DtoCategory){
         console.log('getting category');
         return this.category.getCategoryId(dto)
     }
