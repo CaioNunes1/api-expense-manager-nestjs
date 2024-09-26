@@ -24,9 +24,9 @@ export class CategoryController {
 
     @HttpCode(HttpStatus.OK)
     @Get('getUserCategoryById')
-    async getUserCategoryById(@Query('userId',ParseIntPipe) userId:number){
+    async getUserCategoryById(@Query('userId',ParseIntPipe) userId:number,@Query('name') name:string){
         console.log('buscando usuário de id',userId)
-        return this.category.getUserCategory(userId);
+        return this.category.getUserCategory(userId,name);
     }
 
     @HttpCode(HttpStatus.OK)
