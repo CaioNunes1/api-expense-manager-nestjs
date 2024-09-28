@@ -28,9 +28,10 @@ export class ExpensesController {
     @HttpCode(HttpStatus.OK)
     @Get('getUserExpensesById')
     async getUserExpensesController(
-        @Query('userId',ParseIntPipe) userId:number
+        @Query('userId',ParseIntPipe) userId:number, @Query('categoryId',ParseIntPipe) categoryId:number
     ){
-        return this.service.getUserExpenses(userId);
+        console.log("chamando função getUserExpenses")
+        return this.service.getUserExpenses(userId,categoryId);
     }
 
     @HttpCode(HttpStatus.OK)

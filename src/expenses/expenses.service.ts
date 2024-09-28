@@ -48,17 +48,18 @@ export class ExpensesService {
         }
     }
 
-    async getUserExpenses(userId:number){
+    async getUserExpenses(userId:number, categoryId:number){
         try{
 
-            const expenses=await this.prisma.expenses.findMany({
+            const expenses=await this.prisma.expenses.findFirst({
                 where:{
-                    userId:userId
+                    userId:userId,
+                    categoryId:categoryId
                 }
             })
 
             return expenses;
-        }
+        } 
         catch(error){
             console.log(error);
         }

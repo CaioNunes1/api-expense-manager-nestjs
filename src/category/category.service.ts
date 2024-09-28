@@ -48,12 +48,11 @@ export class CategoryService {
         }
     }
 
-    async getUserCategory(userId:number, name:string){
+    async getUserCategory(userId:number){
         try{
             return this.prisma.category.findMany({
                 where:{
                     userId:userId,
-                    name:name
                 }
             })
 
