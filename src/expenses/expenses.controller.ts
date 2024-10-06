@@ -38,7 +38,7 @@ export class ExpensesController {
     @Put('updateExpense')
     async updateExpense(@Body() dtoExpense:DtoExpense){
         console.log(dtoExpense)
-        return this.service.updateCategory(dtoExpense);
+        return this.service.updateExpense(dtoExpense);
     }
 
 

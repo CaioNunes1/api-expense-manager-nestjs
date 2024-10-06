@@ -65,7 +65,7 @@ export class ExpensesService {
         }
     }
 
-    async updateCategory(dto:DtoExpense){
+    async updateExpense(dto:DtoExpense){
         try{
             const updateCategory=await this.prisma.expenses.updateMany({
                 where:{// where serve para especificar as condições para encontrar as 
