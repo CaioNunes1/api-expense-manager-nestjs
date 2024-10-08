@@ -31,9 +31,11 @@ export class CategoryController {
 
     @HttpCode(HttpStatus.OK)
     @Put('updateCategory')
-    async updateCategory(@Body() dtoCategory:DtoCategory){
+    async updateCategory(@Body() dtoCategory:DtoCategory,@Query('newName') newName:string){
         console.log(dtoCategory)
-        return this.category.updateCategory(dtoCategory);
+        console.log("chamando updateCategory")
+        return this.category.updateCategory(dtoCategory,newName);
+        
     }
 
     @HttpCode(HttpStatus.OK)

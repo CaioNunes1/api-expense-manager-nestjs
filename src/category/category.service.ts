@@ -62,7 +62,7 @@ export class CategoryService {
         }
     }
 
-    async updateCategory(dtoCategory:DtoCategory){
+    async updateCategory(dtoCategory:DtoCategory,newName:string){
         try{
             return this.prisma.category.updateMany({
                 where:{// where serve para especificar as condições para encontrar as 
@@ -71,7 +71,7 @@ export class CategoryService {
                     name:dtoCategory.name
                 },
                 data:{//o data define o campo que vai ser atualizado
-                    name:dtoCategory.newCategoryName
+                    name:newName
                 }
             });
         }
