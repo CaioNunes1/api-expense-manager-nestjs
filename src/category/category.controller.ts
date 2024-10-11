@@ -17,9 +17,9 @@ export class CategoryController {
     @HttpCode(HttpStatus.OK)
     @Delete('delete')
     async deleteCategoryController(
-        @Body() dtoCategory:DtoCategory){
+        @Query('name') name:string,@Query('userId',ParseIntPipe) userId:number){
             console.log('deletando categoria');
-            return this.category.deleteCategory(dtoCategory);
+            return this.category.deleteCategory({name,userId});
     }
 
     @HttpCode(HttpStatus.OK)
